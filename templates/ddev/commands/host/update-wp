@@ -1,0 +1,46 @@
+#!/bin/bash
+
+## Description: Install or update WordPress
+## Usage: update-wp
+## Example: "ddev update-wp"
+## Flags: [{"Name":"initialize-only","Shorthand":"i","Usage":"do nothing if this has been run previously"}]
+
+while :; do
+  case ${1:-} in
+  -i | --initialize-only)
+
+    if [[ -e $DDEV_APPROOT/index.php ]]; then
+      exit
+    fi
+
+    echo Installing WordPress...
+    ;;
+
+  --) # End of all options.
+    shift
+    break
+    ;;
+  -?*)
+    printf 'WARN: Unknown option (ignored): %s\n' "$1" >&2
+    ;;
+  *) # Default case: No more options, so break out of the loop.
+    break ;;
+  esac
+
+  shift
+done
+
+
+# set -x   # You can enable bash debugging output by uncommenting
+#set -eu -o pipefail
+
+eval "$(ddev env)"
+
+if [[ ! ${WORDPRESS_VERSION:-} ]]; then
+  echo "Missing WORDPRESS_VERSION"
+  exit 1
+fi
+
+echo Using WordPress "$WORDPRESS_VERSION"
+ddev wp core download --version="$WORDPRESS_VERSION" --skip-content --force
+ddev wp package install git@github.com:schlessera/wp-cli-psysh.git --quiet > /dev/null 2>&1 || true

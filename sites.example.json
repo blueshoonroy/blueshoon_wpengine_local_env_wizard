@@ -1,0 +1,16 @@
+[
+  {
+    "slug": "playboycom",
+    "remoteDomain": "www.playboy.com",
+    "repoGitUrl": "git@github.com:blueshoon/playboycom.git",
+    "wpVersion": "6.9.4",
+    "mediaMode": "proxy"
+  },
+  {
+    "slug": "exampleclient",
+    "remoteDomain": "www.exampleclient.com",
+    "repoGitUrl": "git@github.com:blueshoon/exampleclient.git",
+    "wpVersion": "6.9.4",
+    "mediaMode": "proxy"
+  }
+]

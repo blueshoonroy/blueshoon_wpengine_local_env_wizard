@@ -1,0 +1,14 @@
+# Secrets and machine-local config
+.wpe-api
+config.json
+
+# Node
+node_modules/
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# sites.json is intentionally NOT ignored — it's the shareable, secret-free
+# profile that lets a new machine re-bootstrap every env. Keep it committed.

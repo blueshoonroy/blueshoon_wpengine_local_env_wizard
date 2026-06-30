@@ -1,0 +1,57 @@
+#!/bin/bash
+
+## Description: Create or overwrite wp-config.php and set defaults
+## Usage: config-wp
+## Example: ddev config-wp
+## Flags: [{"Name":"initialize-only","Shorthand":"i","Usage":"do nothing if this has already been initialized"}]
+
+while :; do
+  case ${1:-} in
+  -i | --initialize-only)
+
+    if [[ -e $DDEV_APPROOT/wp-config.php ]]; then
+      exit
+    fi
+
+    echo Creating wp-config.php...
+
+    ;;
+
+  --) # End of all options.
+    shift
+    break
+    ;;
+  -?*)
+    printf 'WARN: Unknown option (ignored): %s\n' "$1" >&2
+    ;;
+  *) # Default case: No more options, so break out of the loop.
+    break ;;
+  esac
+  shift
+done
+
+
+# set -x   # You can enable bash debugging output by uncommenting
+set -eu -o pipefail
+
+wp_config_template="$DDEV_APPROOT/.ddev/homeadditions/wp-config.php"
+wp_config="$DDEV_APPROOT/wp-config.php"
+
+cp "$wp_config_template" "$wp_config"
+
+wp config set WP_HOME "$DDEV_PRIMARY_URL"
+
+# WP Engine installs frequently use a custom table prefix (e.g. wp_ab12cd_), and
+# a leftover wp_ install may also sit in the same database. Read the real prefix
+# from the live wp-config so we read/import the correct tables. Falls back to an
+# explicit WORDPRESS_TABLE_PREFIX, then wp_.
+remote_prefix="$(ssh -o BatchMode=yes -o StrictHostKeyChecking=accept-new "${WPENGINE_ENV}@${WPENGINE_ENV}.ssh.wpengine.net" "cd sites/${WPENGINE_ENV} && wp config get table_prefix" 2>/dev/null | tr -d '\r')" || remote_prefix=""
+wp config set DB_TABLE_PREFIX "${WORDPRESS_TABLE_PREFIX:-${remote_prefix:-wp_}}"
+echo "Using table prefix: ${WORDPRESS_TABLE_PREFIX:-${remote_prefix:-wp_}}"
+
+wp config shuffle-salts
+
+# Use PsySH for `wp shell` (optional; ignore if the package isn't bundled)
+if [[ -e "$DDEV_APPROOT/.ddev/homeadditions/wp-cli-psysh.zip" ]]; then
+  wp package install "$DDEV_APPROOT/.ddev/homeadditions/wp-cli-psysh.zip" --quiet >/dev/null 2>&1 || true
+fi

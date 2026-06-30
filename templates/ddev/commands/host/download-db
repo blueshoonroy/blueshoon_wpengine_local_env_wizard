@@ -1,0 +1,14 @@
+#!/bin/bash
+
+## Description: Download database to .ddev/.downloads/
+## Usage: download-db
+## Example: "ddev download-db"
+
+# set -x   # You can enable bash debugging output by uncommenting
+set -eu -o pipefail
+
+eval "$(ddev env)"
+
+provider=${DDEV_PROVIDER:-wpengine}
+
+ddev pull "$provider" --skip-files --skip-import

@@ -1,0 +1,10 @@
+{
+  "wpeCredsPath": ".wpe-api",
+  "sshPubKey": "~/.ssh/wpengine_ed25519.pub",
+  "projectsRoot": "C:/laragon/www",
+  "githubOrg": "blueshoon",
+  "concurrency": 3,
+  "defaultWpVersion": "6.9.4",
+  "phpVersion": "8.2",
+  "mysqlVersion": "8.0"
+}

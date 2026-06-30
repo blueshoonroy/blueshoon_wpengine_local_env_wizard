@@ -1,0 +1,1228 @@
+{
+  "_comment": "Maps WP Engine install slug -> GitHub repo under github.com/blueshoon. The wizard locates local clones at <projectsRoot>/<repo> and clones missing repos from sshUrl. Move/add verified entries into \"installs\"; \"review\" holds low-confidence guesses and unmatched installs (delete once handled). Regenerate with: node tools/build-repo-map.mjs (existing \"installs\" entries are preserved; pass --overwrite to rebuild from scratch).",
+  "org": "blueshoon",
+  "installs": {
+    "absolutemed": {
+      "repo": "absolutemedical",
+      "sshUrl": "git@github.com:blueshoon/absolutemedical.git"
+    },
+    "absolutemeddev": {
+      "repo": "absolutemedical",
+      "sshUrl": "git@github.com:blueshoon/absolutemedical.git"
+    },
+    "absolutemedstg": {
+      "repo": "absolutemedical",
+      "sshUrl": "git@github.com:blueshoon/absolutemedical.git"
+    },
+    "barnsco": {
+      "repo": "barnsco",
+      "sshUrl": "git@github.com:blueshoon/barnsco.git"
+    },
+    "barnscoequipme": {
+      "repo": "barnsco-equipment",
+      "sshUrl": "git@github.com:blueshoon/barnsco-equipment.git"
+    },
+    "barnscoequistg": {
+      "repo": "barnsco-equipment",
+      "sshUrl": "git@github.com:blueshoon/barnsco-equipment.git"
+    },
+    "barnscorental": {
+      "repo": "barnsco-rental",
+      "sshUrl": "git@github.com:blueshoon/barnsco-rental.git"
+    },
+    "barnscostg": {
+      "repo": "barnsco",
+      "sshUrl": "git@github.com:blueshoon/barnsco.git"
+    },
+    "barnscotexas": {
+      "repo": "barnsco-texas",
+      "sshUrl": "git@github.com:blueshoon/barnsco-texas.git"
+    },
+    "barnscotexastg": {
+      "repo": "barnsco-texas",
+      "sshUrl": "git@github.com:blueshoon/barnsco-texas.git"
+    },
+    "biggertable": {
+      "repo": "biggertable",
+      "sshUrl": "git@github.com:blueshoon/biggertable.git"
+    },
+    "biggertabledev": {
+      "repo": "biggertable",
+      "sshUrl": "git@github.com:blueshoon/biggertable.git"
+    },
+    "biggertablestg": {
+      "repo": "biggertable",
+      "sshUrl": "git@github.com:blueshoon/biggertable.git"
+    },
+    "bldalliance": {
+      "repo": "builders-alliance",
+      "sshUrl": "git@github.com:blueshoon/builders-alliance.git"
+    },
+    "bluebirdinndev": {
+      "repo": "bluebirdinn",
+      "sshUrl": "git@github.com:blueshoon/bluebirdinn.git"
+    },
+    "bluebirdinnstg": {
+      "repo": "bluebirdinn",
+      "sshUrl": "git@github.com:blueshoon/bluebirdinn.git"
+    },
+    "blueshoodev": {
+      "repo": "blueshoon",
+      "sshUrl": "git@github.com:blueshoon/blueshoon.git"
+    },
+    "blueshoon": {
+      "repo": "blueshoon",
+      "sshUrl": "git@github.com:blueshoon/blueshoon.git"
+    },
+    "blueshoon2stg": {
+      "repo": "blueshoon",
+      "sshUrl": "git@github.com:blueshoon/blueshoon.git"
+    },
+    "buildersallstg": {
+      "repo": "builders-alliance",
+      "sshUrl": "git@github.com:blueshoon/builders-alliance.git"
+    },
+    "campanella1": {
+      "repo": "campanella",
+      "sshUrl": "git@github.com:blueshoon/campanella.git"
+    },
+    "careforreal": {
+      "repo": "careforreal",
+      "sshUrl": "git@github.com:blueshoon/careforreal.git"
+    },
+    "cdbaby503": {
+      "repo": "cdbaby",
+      "sshUrl": "git@github.com:blueshoon/cdbaby.git"
+    },
+    "cdbaby503stg": {
+      "repo": "cdbaby",
+      "sshUrl": "git@github.com:blueshoon/cdbaby.git"
+    },
+    "cdbabymain": {
+      "repo": "cdbaby",
+      "sshUrl": "git@github.com:blueshoon/cdbaby.git"
+    },
+    "chscprdev": {
+      "repo": "chscpr",
+      "sshUrl": "git@github.com:blueshoon/chscpr.git"
+    },
+    "chscprprd": {
+      "repo": "chscpr",
+      "sshUrl": "git@github.com:blueshoon/chscpr.git"
+    },
+    "chscprstg": {
+      "repo": "chscpr",
+      "sshUrl": "git@github.com:blueshoon/chscpr.git"
+    },
+    "codeshiptest": {
+      "repo": "codeship-test",
+      "sshUrl": "git@github.com:blueshoon/codeship-test.git"
+    },
+    "drywallmatestg": {
+      "repo": "drywall",
+      "sshUrl": "git@github.com:blueshoon/drywall.git"
+    },
+    "ealmfg": {
+      "repo": "eal-mfg",
+      "sshUrl": "git@github.com:blueshoon/eal-mfg.git"
+    },
+    "ealmfgstg": {
+      "repo": "eal-mfg",
+      "sshUrl": "git@github.com:blueshoon/eal-mfg.git"
+    },
+    "edgecombeprod": {
+      "repo": "edgecombe",
+      "sshUrl": "git@github.com:blueshoon/edgecombe.git"
+    },
+    "edgewaterchmb": {
+      "repo": "edgewaterchamber",
+      "sshUrl": "git@github.com:blueshoon/edgewaterchamber.git"
+    },
+    "edgewaterdev": {
+      "repo": "edgewaterchamber",
+      "sshUrl": "git@github.com:blueshoon/edgewaterchamber.git"
+    },
+    "edgewaterstg": {
+      "repo": "edgewaterchamber",
+      "sshUrl": "git@github.com:blueshoon/edgewaterchamber.git"
+    },
+    "freedommater": {
+      "repo": "freedom-materials",
+      "sshUrl": "git@github.com:blueshoon/freedom-materials.git"
+    },
+    "freedommatestg": {
+      "repo": "freedom-materials",
+      "sshUrl": "git@github.com:blueshoon/freedom-materials.git"
+    },
+    "getwellconndev": {
+      "repo": "getwellconnect",
+      "sshUrl": "git@github.com:blueshoon/getwellconnect.git"
+    },
+    "getwellconnect": {
+      "repo": "getwellconnect",
+      "sshUrl": "git@github.com:blueshoon/getwellconnect.git"
+    },
+    "getwellconnstg": {
+      "repo": "getwellconnect",
+      "sshUrl": "git@github.com:blueshoon/getwellconnect.git"
+    },
+    "getwelldev": {
+      "repo": "getwell",
+      "sshUrl": "git@github.com:blueshoon/getwell.git"
+    },
+    "getwellold": {
+      "repo": "getwell",
+      "sshUrl": "git@github.com:blueshoon/getwell.git"
+    },
+    "giltedgedev": {
+      "repo": "giltedge",
+      "sshUrl": "git@github.com:blueshoon/giltedge.git"
+    },
+    "giordanos1": {
+      "repo": "giordanos-wordpress",
+      "sshUrl": "git@github.com:blueshoon/giordanos-wordpress.git"
+    },
+    "giordanosstg": {
+      "repo": "giordanos-wordpress",
+      "sshUrl": "git@github.com:blueshoon/giordanos-wordpress.git"
+    },
+    "goldmandev": {
+      "repo": "goldmanismail",
+      "sshUrl": "git@github.com:blueshoon/goldmanismail.git"
+    },
+    "goldmanismail": {
+      "repo": "goldmanismail",
+      "sshUrl": "git@github.com:blueshoon/goldmanismail.git"
+    },
+    "goldmanstg": {
+      "repo": "goldmanismail",
+      "sshUrl": "git@github.com:blueshoon/goldmanismail.git"
+    },
+    "jalexander1dev": {
+      "repo": "j-alexander",
+      "sshUrl": "git@github.com:blueshoon/j-alexander.git"
+    },
+    "jalexander1stg": {
+      "repo": "j-alexander",
+      "sshUrl": "git@github.com:blueshoon/j-alexander.git"
+    },
+    "jalexanders1": {
+      "repo": "j-alexander",
+      "sshUrl": "git@github.com:blueshoon/j-alexander.git"
+    },
+    "jenkinslumbstg": {
+      "repo": "jenkins",
+      "sshUrl": "git@github.com:blueshoon/jenkins.git"
+    },
+    "jonesheartz": {
+      "repo": "jonesheartz",
+      "sshUrl": "git@github.com:blueshoon/jonesheartz.git"
+    },
+    "jonesheartzstg": {
+      "repo": "jonesheartz",
+      "sshUrl": "git@github.com:blueshoon/jonesheartz.git"
+    },
+    "juralaw": {
+      "repo": "juralaw",
+      "sshUrl": "git@github.com:blueshoon/juralaw.git"
+    },
+    "juralawstg": {
+      "repo": "juralaw",
+      "sshUrl": "git@github.com:blueshoon/juralaw.git"
+    },
+    "kodiakbp": {
+      "repo": "kodiak",
+      "sshUrl": "git@github.com:blueshoon/kodiak.git"
+    },
+    "kodiakbpdev": {
+      "repo": "kodiak",
+      "sshUrl": "git@github.com:blueshoon/kodiak.git"
+    },
+    "kodiakbpstg": {
+      "repo": "kodiak",
+      "sshUrl": "git@github.com:blueshoon/kodiak.git"
+    },
+    "kodiakfoundati": {
+      "repo": "kodiakfoundation",
+      "sshUrl": "git@github.com:blueshoon/kodiakfoundation.git"
+    },
+    "lawbulletinmed": {
+      "repo": "lawbulletin",
+      "sshUrl": "git@github.com:blueshoon/lawbulletin.git"
+    },
+    "lawbulletinsem": {
+      "repo": "lawbulletin",
+      "sshUrl": "git@github.com:blueshoon/lawbulletin.git"
+    },
+    "logans": {
+      "repo": "logansroadhouse",
+      "sshUrl": "git@github.com:blueshoon/logansroadhouse.git"
+    },
+    "logansroaddev": {
+      "repo": "logansroadhouse",
+      "sshUrl": "git@github.com:blueshoon/logansroadhouse.git"
+    },
+    "logansstg": {
+      "repo": "logans-hr",
+      "sshUrl": "git@github.com:blueshoon/logans-hr.git"
+    },
+    "longroomchidev": {
+      "repo": "longroom",
+      "sshUrl": "git@github.com:blueshoon/longroom.git"
+    },
+    "longroomstg": {
+      "repo": "longroom",
+      "sshUrl": "git@github.com:blueshoon/longroom.git"
+    },
+    "medallionwd": {
+      "repo": "medallion",
+      "sshUrl": "git@github.com:blueshoon/medallion.git"
+    },
+    "mendocinofarm": {
+      "repo": "mendocinofarms",
+      "sshUrl": "git@github.com:blueshoon/mendocinofarms.git"
+    },
+    "mendocinostg": {
+      "repo": "mendocinofarms",
+      "sshUrl": "git@github.com:blueshoon/mendocinofarms.git"
+    },
+    "metlifeinvestg": {
+      "repo": "metlife-investor-day",
+      "sshUrl": "git@github.com:blueshoon/metlife-investor-day.git"
+    },
+    "milgreen": {
+      "repo": "milgreen",
+      "sshUrl": "git@github.com:blueshoon/milgreen.git"
+    },
+    "milgreendev": {
+      "repo": "milgreen",
+      "sshUrl": "git@github.com:blueshoon/milgreen.git"
+    },
+    "milgreenstg": {
+      "repo": "milgreen",
+      "sshUrl": "git@github.com:blueshoon/milgreen.git"
+    },
+    "millerlumber": {
+      "repo": "miller-lumber",
+      "sshUrl": "git@github.com:blueshoon/miller-lumber.git"
+    },
+    "millerlumbestg": {
+      "repo": "miller-lumber",
+      "sshUrl": "git@github.com:blueshoon/miller-lumber.git"
+    },
+    "nebs1": {
+      "repo": "nebs",
+      "sshUrl": "git@github.com:blueshoon/nebs.git"
+    },
+    "nebsstg": {
+      "repo": "nebs",
+      "sshUrl": "git@github.com:blueshoon/nebs.git"
+    },
+    "oldchicagodev": {
+      "repo": "old-chicago",
+      "sshUrl": "git@github.com:blueshoon/old-chicago.git"
+    },
+    "oldchicagoprod": {
+      "repo": "old-chicago",
+      "sshUrl": "git@github.com:blueshoon/old-chicago.git"
+    },
+    "oldchicagostg": {
+      "repo": "old-chicago",
+      "sshUrl": "git@github.com:blueshoon/old-chicago.git"
+    },
+    "outcastagency": {
+      "repo": "outcast-agency",
+      "sshUrl": "git@github.com:blueshoon/outcast-agency.git"
+    },
+    "outcastagencyd": {
+      "repo": "outcast-agency",
+      "sshUrl": "git@github.com:blueshoon/outcast-agency.git"
+    },
+    "outcastagencys": {
+      "repo": "outcast-agency",
+      "sshUrl": "git@github.com:blueshoon/outcast-agency.git"
+    },
+    "pbudgestg": {
+      "repo": "pbudge",
+      "sshUrl": "git@github.com:blueshoon/pbudge.git"
+    },
+    "pbudgeting": {
+      "repo": "pbudge",
+      "sshUrl": "git@github.com:blueshoon/pbudge.git"
+    },
+    "phclubbmore": {
+      "repo": "phclubs-baltimore",
+      "sshUrl": "git@github.com:blueshoon/phclubs-baltimore.git"
+    },
+    "playboycom": {
+      "repo": "playboycom",
+      "sshUrl": "git@github.com:blueshoon/playboycom.git"
+    },
+    "playboycomdev": {
+      "repo": "playboycom",
+      "sshUrl": "git@github.com:blueshoon/playboycom.git"
+    },
+    "playboycomstg": {
+      "repo": "playboycom",
+      "sshUrl": "git@github.com:blueshoon/playboycom.git"
+    },
+    "playboycomvdev": {
+      "repo": "playboycom",
+      "sshUrl": "git@github.com:blueshoon/playboycom.git"
+    },
+    "playboycomvstg": {
+      "repo": "playboycom",
+      "sshUrl": "git@github.com:blueshoon/playboycom.git"
+    },
+    "ravenswooddev": {
+      "repo": "ravenswoodtitle",
+      "sshUrl": "git@github.com:blueshoon/ravenswoodtitle.git"
+    },
+    "ravenswoodstg": {
+      "repo": "ravenswoodtitle",
+      "sshUrl": "git@github.com:blueshoon/ravenswoodtitle.git"
+    },
+    "recruitwell": {
+      "repo": "recruitwell",
+      "sshUrl": "git@github.com:blueshoon/recruitwell.git"
+    },
+    "recruitwelldev": {
+      "repo": "recruitwell",
+      "sshUrl": "git@github.com:blueshoon/recruitwell.git"
+    },
+    "recruitwellst": {
+      "repo": "recruitwell",
+      "sshUrl": "git@github.com:blueshoon/recruitwell.git"
+    },
+    "recruitwellstg": {
+      "repo": "recruitwell",
+      "sshUrl": "git@github.com:blueshoon/recruitwell.git"
+    },
+    "recruitwelltmp": {
+      "repo": "recruitwell",
+      "sshUrl": "git@github.com:blueshoon/recruitwell.git"
+    },
+    "rileyconst": {
+      "repo": "rileyconnect",
+      "sshUrl": "git@github.com:blueshoon/rileyconnect.git"
+    },
+    "rileyconstdev": {
+      "repo": "riley",
+      "sshUrl": "git@github.com:blueshoon/riley.git"
+    },
+    "rileyconstg": {
+      "repo": "rileyconnect",
+      "sshUrl": "git@github.com:blueshoon/rileyconnect.git"
+    },
+    "simonsonlumbe1": {
+      "repo": "simonson-lumber",
+      "sshUrl": "git@github.com:blueshoon/simonson-lumber.git"
+    },
+    "spbhospitality": {
+      "repo": "spbhospitality",
+      "sshUrl": "git@github.com:blueshoon/spbhospitality.git"
+    },
+    "spbhospitalstg": {
+      "repo": "spbhospitality",
+      "sshUrl": "git@github.com:blueshoon/spbhospitality.git"
+    },
+    "stoneyrive1dev": {
+      "repo": "stoney-river",
+      "sshUrl": "git@github.com:blueshoon/stoney-river.git"
+    },
+    "stoneyrive1stg": {
+      "repo": "stoney-river",
+      "sshUrl": "git@github.com:blueshoon/stoney-river.git"
+    },
+    "stoneyriver1": {
+      "repo": "stoney-river",
+      "sshUrl": "git@github.com:blueshoon/stoney-river.git"
+    },
+    "tagboarddev": {
+      "repo": "tagboard",
+      "sshUrl": "git@github.com:blueshoon/tagboard.git"
+    },
+    "tagboardprd": {
+      "repo": "tagboard",
+      "sshUrl": "git@github.com:blueshoon/tagboard.git"
+    },
+    "tagboardprdstg": {
+      "repo": "tagboard",
+      "sshUrl": "git@github.com:blueshoon/tagboard.git"
+    },
+    "teneoventures": {
+      "repo": "teneo-ventures",
+      "sshUrl": "git@github.com:blueshoon/teneo-ventures.git"
+    },
+    "thehummuslady": {
+      "repo": "thehummuslady",
+      "sshUrl": "git@github.com:blueshoon/thehummuslady.git"
+    },
+    "theotherco": {
+      "repo": "theotherco",
+      "sshUrl": "git@github.com:blueshoon/theotherco.git"
+    },
+    "thomasbuilddev": {
+      "repo": "thomasbuilding",
+      "sshUrl": "git@github.com:blueshoon/thomasbuilding.git"
+    },
+    "thomasbuilding": {
+      "repo": "thomasbuilding",
+      "sshUrl": "git@github.com:blueshoon/thomasbuilding.git"
+    },
+    "thomasbuildstg": {
+      "repo": "thomasbuilding",
+      "sshUrl": "git@github.com:blueshoon/thomasbuilding.git"
+    },
+    "visionarywomen": {
+      "repo": "visionary-women",
+      "sshUrl": "git@github.com:blueshoon/visionary-women.git"
+    },
+    "westerninterio": {
+      "repo": "westerninterior",
+      "sshUrl": "git@github.com:blueshoon/westerninterior.git"
+    },
+    "winoviaprod": {
+      "repo": "Winovia",
+      "sshUrl": "git@github.com:blueshoon/Winovia.git"
+    },
+    "worksmart": {
+      "repo": "worksmart",
+      "sshUrl": "git@github.com:blueshoon/worksmart.git"
+    },
+    "worksmartdev": {
+      "repo": "worksmart",
+      "sshUrl": "git@github.com:blueshoon/worksmart.git"
+    },
+    "worksmartstg": {
+      "repo": "worksmart",
+      "sshUrl": "git@github.com:blueshoon/worksmart.git"
+    },
+    "yogaworksndev": {
+      "repo": "yogaworks",
+      "sshUrl": "git@github.com:blueshoon/yogaworks.git"
+    },
+    "yogaworksnew": {
+      "repo": "yogaworks",
+      "sshUrl": "git@github.com:blueshoon/yogaworks.git"
+    },
+    "yogaworksnstg": {
+      "repo": "yogaworks",
+      "sshUrl": "git@github.com:blueshoon/yogaworks.git"
+    },
+    "yogaworkspro": {
+      "repo": "yogaworks",
+      "sshUrl": "git@github.com:blueshoon/yogaworks.git"
+    },
+    "zarksylumber": {
+      "repo": "zarsky",
+      "sshUrl": "git@github.com:blueshoon/zarsky.git"
+    },
+    "longroomchicag": {
+      "repo": "longroom",
+      "sshUrl": "git@github.com:blueshoon/longroom.git"
+    }
+  },
+  "review": {
+    "ambuilders": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "www.americanbuildsupply.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "ambuildstg": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "ambuildstg.wpenginepowered.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "bitterexcbd": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "www.bitterexcbd.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "boarddiversity": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "boarddiversityactionalliance.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "bradyintelstg": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "reports.bradyintel.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "buildersmill": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "buildersmillworkinc.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "buildersmilstg": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "buildersmilstg.wpenginepowered.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "cclf2021": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "2020annualreport.cclfchicago.org",
+      "score": 0,
+      "why": "no-match"
+    },
+    "cclf2022": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "cclf2022.wpengine.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "cclf2022stg": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "cclf2022stg.wpenginepowered.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "cclfreport": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "2019annualreport.cclfchicago.org",
+      "score": 0,
+      "why": "no-match"
+    },
+    "cclfreportstg": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "cclfreportstg.wpengine.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "cdbaby503dev2": {
+      "repo": "cdbaby",
+      "sshUrl": "git@github.com:blueshoon/cdbaby.git",
+      "domain": "cdbaby503dev2.wpenginepowered.com",
+      "score": 69,
+      "why": "key-starts-with-repo"
+    },
+    "cdbdiymusician": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "diymusician.cdbaby.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "cdbecom": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "cdbecom.wpengine.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "cdbsomos": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "somosmusica.cdbaby.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "chicagoglutton": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "chicagoglutton.wpengine.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "chiglutstg": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "chiglutstg.wpenginepowered.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "dbelection": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "www.democracybeyondelections.org",
+      "score": 0,
+      "why": "no-match"
+    },
+    "diymusiciancon": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "diymusiciancon.cdbaby.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "diymusiciandev": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "diymusiciandev.wpenginepowered.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "diypodcast": {
+      "repo": "diy_blog-and-podcast_theme",
+      "sshUrl": "git@github.com:blueshoon/diy_blog-and-podcast_theme.git",
+      "domain": "podcast.cdbaby.com",
+      "score": 60,
+      "why": "repo-includes-key"
+    },
+    "drywallmateria": {
+      "repo": "drywall",
+      "sshUrl": "git@github.com:blueshoon/drywall.git",
+      "domain": "drywallmaterialsales.com",
+      "score": 68,
+      "why": "key-starts-with-repo"
+    },
+    "electrogrp": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "electrogrp.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "epilepsychicag": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "epilepsychicago.org",
+      "score": 0,
+      "why": "no-match"
+    },
+    "epilepsychistg": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "epilepsychistg.wpenginepowered.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "euusoacdbaby": {
+      "repo": "cdbaby",
+      "sshUrl": "git@github.com:blueshoon/cdbaby.git",
+      "domain": "euusoa.cdbaby.com",
+      "score": 55,
+      "why": "key-includes-repo"
+    },
+    "fitbuxmoneysch": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "fitbuxmoneysch.wpenginepowered.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "frontierbld": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "frontierbld.wpengine.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "frontierbldstg": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "frontierbldstg.wpenginepowered.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "fyusion": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "www.fyusiondining.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "getwellnetwork": {
+      "repo": "getwell",
+      "sshUrl": "git@github.com:blueshoon/getwell.git",
+      "domain": "www.getwellnetwork.com",
+      "score": 68,
+      "why": "key-starts-with-repo"
+    },
+    "heidipeterson": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "heidijoypeterson.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "honkala": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "johnhonkala.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "hostbbblog": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "hostbbblog.wpengine.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "httphandbookpa": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "httphandbookpa.wpenginepowered.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "illustratedsnd": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "illustratedsnd.wpengine.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "illustratedstg": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "illustratedstg.wpengine.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "imperfectfood": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "theimperfectfoodie.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "iusecdbaby": {
+      "repo": "cdbaby",
+      "sshUrl": "git@github.com:blueshoon/cdbaby.git",
+      "domain": "iuse.cdbaby.com",
+      "score": 55,
+      "why": "key-includes-repo"
+    },
+    "iusecdbstaging": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "iusecdbstaging.wpengine.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "jenkinslumber": {
+      "repo": "jenkins",
+      "sshUrl": "git@github.com:blueshoon/jenkins.git",
+      "domain": "www.jenkinslumber.com",
+      "score": 69,
+      "why": "key-starts-with-repo"
+    },
+    "justicepbudge": {
+      "repo": "pbudge",
+      "sshUrl": "git@github.com:blueshoon/pbudge.git",
+      "domain": "justice.participatorybudgeting.org",
+      "score": 55,
+      "why": "key-includes-repo"
+    },
+    "labagh": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "www.labaghpeanuts.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "labaghdev": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "labaghdev.wpengine.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "labaghstg": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "labaghstg.wpengine.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "layftc": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "layftc.org",
+      "score": 0,
+      "why": "no-match"
+    },
+    "laytcstg": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "laytcstg.wpengine.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "lbmediadev": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "lbmediadev.wpengine.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "lbmediastg": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "lbmediastg.wpengine.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "lbseminarsdev": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "lbseminarsdev.wpengine.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "lbseminarsstg": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "lbseminarsstg.wpengine.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "mendocontact": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "contact.mendocinofarms.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "mendodevsite": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "mendodevsite.wpengine.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "metlifeid": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "metlifeid.wpenginepowered.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "musicodiy": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "musicodiy.cdbaby.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "nahchicagodev": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "nahchicagodev.wpengine.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "nahnchicago": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "www.northsideantihunger.org",
+      "score": 0,
+      "why": "no-match"
+    },
+    "nahnchicagostg": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "nahnchicagostg.wpengine.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "nebldgsupply": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "nebldgsupply.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "nundalodge169": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "nundalodge169.wpengine.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "pbddstaging": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "pbddstaging.wpengine.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "pbproject": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "www.pbcan.org",
+      "score": 0,
+      "why": "no-match"
+    },
+    "pbprojectdev": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "pbprojectdev.wpengine.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "pbprojectstg": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "pbprojectstg.wpengine.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "phclubtampa": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "tampa.penthouseclubs.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "phclubtampadev": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "phclubtampadev.wpenginepowered.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "phclubtampastg": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "phclubtampastg.wpenginepowered.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "phneworleans": {
+      "repo": "phcneworleans",
+      "sshUrl": "git@github.com:blueshoon/phcneworleans.git",
+      "domain": "neworleans.penthouseclubs.com",
+      "score": 60,
+      "why": "repo-includes-key"
+    },
+    "playboyv2": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "playboyv2.wpenginepowered.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "prembuildprd": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "www.premierbuildingsupply.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "premierbldstg": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "premierbldstg.wpenginepowered.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "ravenswoodttle": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "ravenswoodttle.wpenginepowered.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "releasegen": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "releasegen.wpenginepowered.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "releasegendev": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "releasegendev.wpengine.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "releasestaging": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "releasestaging.wpenginepowered.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "riverbord": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "riverandbord.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "riverbordstg": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "riverbordstg.wpenginepowered.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "showcoprod": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "www.show.co",
+      "score": 0,
+      "why": "no-match"
+    },
+    "showcostaging": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "showcostaging.wpengine.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "soundrop": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "soundrop.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "soundropdev": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "soundropdev.wpengine.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "soundropstag": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "soundropstag.wpengine.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "stagingdiyblog": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "stagingdiyblog.wpengine.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "stagingdiycon": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "stagingdiycon.wpengine.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "stagingdiypod": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "stagingdiypod.wpengine.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "stagingmusico": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "stagingmusico.wpengine.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "stagingsomos": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "stagingsomos.wpengine.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "sunmtn": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "sunmtn.wpengine.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "sunmtnstg": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "sunmtnstg.wpenginepowered.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "sunshinemesafi": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "sunshinemesafilms.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "thebluebirdinn": {
+      "repo": "bluebirdinn",
+      "sshUrl": "git@github.com:blueshoon/bluebirdinn.git",
+      "domain": "www.bluebirdinnchicago.com",
+      "score": 68,
+      "why": "key-starts-with-repo"
+    },
+    "thedesignteam1": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "thedesignteam.biz",
+      "score": 0,
+      "why": "no-match"
+    },
+    "togosredirects": {
+      "repo": "togos",
+      "sshUrl": "git@github.com:blueshoon/togos.git",
+      "domain": "togosredirects.wpengine.com",
+      "score": 66,
+      "why": "key-starts-with-repo"
+    },
+    "viswomendev": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "viswomendev.wpenginepowered.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "viswomenstg": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "viswomenstg.wpenginepowered.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "westernintrstg": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "westernintrstg.wpenginepowered.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "yousocdbaby": {
+      "repo": "cdbaby",
+      "sshUrl": "git@github.com:blueshoon/cdbaby.git",
+      "domain": "youso.cdbaby.com",
+      "score": 55,
+      "why": "key-includes-repo"
+    },
+    "zarksylumbedev": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "zarksylumbedev.wpenginepowered.com",
+      "score": 0,
+      "why": "no-match"
+    },
+    "zarksylumbestg": {
+      "repo": null,
+      "sshUrl": null,
+      "domain": "zarksylumbestg.wpenginepowered.com",
+      "score": 0,
+      "why": "no-match"
+    }
+  }
+}

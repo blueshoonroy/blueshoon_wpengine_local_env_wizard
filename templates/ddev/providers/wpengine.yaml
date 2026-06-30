@@ -1,0 +1,59 @@
+auth_command:
+  command: |
+    #set -x   # You can enable bash debugging output by uncommenting
+    set -eu -o pipefail
+    which rsync >/dev/null || ( echo "Missing rsync in PATH" && exit 1 )
+
+# The mysql.sql file is downloaded to DDEV's default location: .ddev/.downloads/db.sql
+# DDEV will automatically import. Use --skip-import to download only.
+# See the post-import-db hook in .ddev/config.yaml
+db_pull_command:
+  command: |
+    #set -x   # You can enable bash debugging output by uncommenting
+    set -eu -o pipefail
+
+    echo "WPENGINE_ENV is ${WPENGINE_ENV}"
+
+    ssh_config="${WPENGINE_ENV}@${WPENGINE_ENV}.ssh.wpengine.net"
+    db_path="/home/wpe-user/sites/${WPENGINE_ENV}/wp-content/mysql.sql"
+
+    db_src="${ssh_config}:${db_path}"
+    db_dest="/var/www/html/.ddev/.downloads/db.sql"
+
+    # The static wp-content/mysql.sql on WP Engine is a periodic snapshot and can
+    # be badly stale (wrong theme, missing content). Regenerate it from the LIVE
+    # database before pulling. Non-fatal: fall back to the existing file on error.
+    echo "Exporting a fresh database from the live site..."
+    ssh "$ssh_config" "cd sites/${WPENGINE_ENV} && wp db export wp-content/mysql.sql" \
+      || echo "WARN: fresh export failed; using the existing (possibly stale) mysql.sql"
+
+    rsync -azP "$db_src" "$db_dest"
+
+files_pull_command:
+  command: |
+    #set -x   # You can enable bash debugging output by uncommenting
+    set -eu -o pipefail
+
+    echo "WPENGINE_ENV is ${WPENGINE_ENV}"
+
+    ssh_config="${WPENGINE_ENV}@${WPENGINE_ENV}.ssh.wpengine.net"
+
+    # Plugins
+    plugins_src="${ssh_config}:/home/wpe-user/sites/${WPENGINE_ENV}/wp-content/plugins/"
+    plugins_dest="/var/www/html/wp-content/plugins"
+    echo "$plugins_src" "$plugins_dest"
+    rsync -azP --exclude 'wordfence' "$plugins_src" "$plugins_dest"
+
+    # Themes — pulled too, because a site's active theme often lives only on WP
+    # Engine (e.g. a premium theme) and isn't committed to the git repo.
+    themes_src="${ssh_config}:/home/wpe-user/sites/${WPENGINE_ENV}/wp-content/themes/"
+    themes_dest="/var/www/html/wp-content/themes"
+    mkdir -p "$themes_dest"
+    echo "$themes_src" "$themes_dest"
+    rsync -azP "$themes_src" "$themes_dest"
+
+# This doesn't do anything, but is necessary to override the default behavior
+files_import_command:
+  service: host
+  command: |
+    true

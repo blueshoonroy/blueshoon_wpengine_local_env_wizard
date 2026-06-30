@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WPEngine Local Env Wizard</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="logo">⚡</span>
+        <div>
+          <h1>WPEngine Local Env Wizard</h1>
+          <p class="sub">Discover installs → match repos → spin up DDEV envs in parallel</p>
+        </div>
+      </div>
+      <div class="actions">
+        <button id="btn-refresh" class="ghost">↻ Refresh installs</button>
+        <button id="btn-setup-all" class="ghost">Set up all from profile</button>
+      </div>
+    </header>
+
+    <section id="preflight" class="banner hidden"></section>
+
+    <details id="config-panel" class="card">
+      <summary>Settings</summary>
+      <div class="config-grid">
+        <label>Projects root<input id="cfg-projectsRoot" type="text" /></label>
+        <label>SSH public key<input id="cfg-sshPubKey" type="text" /></label>
+        <label>WPE creds file<input id="cfg-wpeCredsPath" type="text" /></label>
+        <label>Concurrency<input id="cfg-concurrency" type="number" min="1" max="5" /></label>
+        <label>Default WP version<input id="cfg-defaultWpVersion" type="text" /></label>
+      </div>
+      <button id="btn-save-config" class="primary small">Save settings</button>
+      <span id="config-saved" class="muted"></span>
+    </details>
+
+    <main class="columns">
+      <section class="col">
+        <div class="col-head">
+          <h2>Installs <span class="muted">production only</span></h2>
+          <div class="filters">
+            <input id="filter-text" type="search" placeholder="Filter by name / domain…" />
+          </div>
+        </div>
+        <div id="installs" class="installs">
+          <p class="muted">Loading installs…</p>
+        </div>
+        <div class="setup-bar">
+          <label class="inline"><input type="checkbox" id="opt-freshdb" /> Fresh DB export</label>
+          <button id="btn-setup" class="primary" disabled>Set up selected (<span id="sel-count">0</span>)</button>
+        </div>
+      </section>
+
+      <section class="col">
+        <div class="col-head"><h2>Queue</h2><span id="queue-summary" class="muted"></span></div>
+        <div id="queue" class="queue"><p class="muted">No jobs yet.</p></div>
+      </section>
+    </main>
+
+    <div id="log-drawer" class="drawer hidden">
+      <div class="drawer-head">
+        <strong id="log-title">Log</strong>
+        <button id="log-close" class="ghost small">✕ Close</button>
+      </div>
+      <pre id="log-body" class="log-body"></pre>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

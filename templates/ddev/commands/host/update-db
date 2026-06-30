@@ -1,0 +1,48 @@
+#!/bin/bash
+
+## Description: Download and import database
+## Usage: update-db
+## Example: "ddev update-db"
+## Flags: [{"Name":"initialize-only","Shorthand":"i","Usage":"do nothing if this has been run previously"}]
+
+while :; do
+  case ${1:-} in
+  -i | --initialize-only)
+
+    has_posts=$(ddev mysql -e 'SHOW TABLES LIKE "%posts";')
+    if [[ -n $has_posts ]]; then
+      exit
+    fi
+
+    echo Creating database...
+
+    ;;
+
+  --) # End of all options.
+    shift
+    break
+    ;;
+  -?*)
+    printf 'WARN: Unknown option (ignored): %s\n' "$1" >&2
+    ;;
+  *) # Default case: No more options, so break out of the loop.
+    break ;;
+  esac
+
+  shift
+done
+
+
+# set -x   # You can enable bash debugging output by uncommenting
+set -eu -o pipefail
+
+provider=${PROVIDER:-wpengine}
+
+# Download the database only (rsync via the provider), then import it separately.
+# We do NOT use `ddev pull`'s built-in import: on Windows it mangles the target
+# database name (it passes the project path like C:\laragon\www\<site> instead of
+# "db"), so MySQL fails with: ERROR at line 1: Unknown command '\l'.
+# `ddev import-db` imports into "db" correctly and still fires the
+# post-import-db hook (the wp search-replace).
+ddev pull "$provider" --skip-files --skip-import -y
+ddev import-db --file=.ddev/.downloads/db.sql

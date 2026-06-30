@@ -1,0 +1,47 @@
+#!/bin/bash
+
+## Description: Install dependencies and run build
+## Usage: build
+## Example: "ddev build"
+## Flags: [{"Name":"initialize-only","Shorthand":"i","Usage":"do nothing if this has been run previously"}]
+
+while :; do
+  case ${1:-} in
+  -i | --initialize-only)
+
+    if [[ -e $DDEV_APPROOT/node_modules ]]; then
+      exit
+    fi
+
+    echo Running build...
+
+    ;;
+
+  --) # End of all options.
+    shift
+    break
+    ;;
+  -?*)
+    printf 'WARN: Unknown option (ignored): %s\n' "$1" >&2
+    ;;
+  *) # Default case: No more options, so break out of the loop.
+    break ;;
+  esac
+  shift
+done
+
+
+# set -x   # You can enable bash debugging output by uncommenting
+set -eu -o pipefail
+
+# Only run the build if the project actually has a package.json at the docroot.
+if [[ -e "$DDEV_APPROOT/package.json" ]]; then
+  ddev npm install
+  # Compile theme assets if the project defines a "build" script (no-op if not).
+  # Non-fatal: a build failure shouldn't fail the whole site setup — the log
+  # will show the warning and it can be re-run with `ddev npm run build`.
+  echo "Compiling assets (npm run build, if defined)..."
+  ddev npm run build --if-present || echo "WARN: asset build failed; run 'ddev npm run build' in the project to retry."
+else
+  echo "No package.json found, skipping npm install/build."
+fi

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+## Description: Run WP-CLI remotely
+## Usage: wp-remote
+## Example: "ddev wp-remote core version"
+
+ssh -q "${WPENGINE_ENV}@${WPENGINE_ENV}.ssh.wpengine.net" "wp $*"

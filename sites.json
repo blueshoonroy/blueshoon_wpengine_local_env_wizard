@@ -1,0 +1,37 @@
+[
+  {
+    "slug": "biggertable",
+    "remoteDomain": "www.biggertable.org",
+    "repoGitUrl": "git@github.com:blueshoon/biggertable.git",
+    "wpVersion": "6.9.4",
+    "mediaMode": "proxy"
+  },
+  {
+    "slug": "edgewaterchmb",
+    "remoteDomain": "www.edgewater.org",
+    "repoGitUrl": "git@github.com:blueshoon/edgewaterchamber.git",
+    "wpVersion": "6.9.4",
+    "mediaMode": "proxy"
+  },
+  {
+    "slug": "juralaw",
+    "remoteDomain": "juralaw.wpenginepowered.com",
+    "repoGitUrl": "git@github.com:blueshoon/juralaw.git",
+    "wpVersion": "6.9.4",
+    "mediaMode": "proxy"
+  },
+  {
+    "slug": "spbhospitality",
+    "remoteDomain": "spbhospitality.wpenginepowered.com",
+    "repoGitUrl": "git@github.com:blueshoon/spbhospitality.git",
+    "wpVersion": "6.9.4",
+    "mediaMode": "proxy"
+  },
+  {
+    "slug": "visionarywomen",
+    "remoteDomain": "www.visionarywomen.com",
+    "repoGitUrl": "git@github.com:blueshoon/visionary-women.git",
+    "wpVersion": "6.9.4",
+    "mediaMode": "proxy"
+  }
+]

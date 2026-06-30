@@ -1,0 +1,5 @@
+# WP Engine Hosting Platform API credentials.
+# Generate these in the WP Engine User Portal -> API Access (https://my.wpengine.com/api_access).
+# Copy this file to .wpe-api and fill in real values. .wpe-api is gitignored.
+WPE_API_USER=your-api-username-uuid
+WPE_API_PASSWORD=your-api-password

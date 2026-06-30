@@ -1,0 +1,38 @@
+#!/bin/bash
+
+## Description: Install or update WordPress plugins
+## Usage: update-plugins
+## Example: "ddev update-plugins"
+## Flags: [{"Name":"initialize-only","Shorthand":"i","Usage":"accepted for hook compatibility; plugins are always pulled"}]
+
+while :; do
+  case ${1:-} in
+  -i | --initialize-only)
+
+    # No-op: we ALWAYS pull plugins so the local copy mirrors production,
+    # including plugin updates. Pulling is an incremental rsync, so re-running
+    # on every `ddev start` is cheap. (A previous guard that skipped when the
+    # plugins dir was non-empty broke sites whose repo commits index.php or a
+    # custom plugin — the real plugins like ACF Pro never got pulled.)
+    echo Downloading remote plugins...
+    ;;
+
+  --) # End of all options.
+    shift
+    break
+    ;;
+  -?*)
+    printf 'WARN: Unknown option (ignored): %s\n' "$1" >&2
+    ;;
+  *) # Default case: No more options, so break out of the loop.
+    break ;;
+  esac
+
+  shift
+done
+
+
+# set -x   # You can enable bash debugging output by uncommenting
+set -eu -o pipefail
+
+ddev pull wpengine --skip-db --skip-import -y

@@ -1,0 +1,16 @@
+{
+  "name": "wpengine-local-env-wizard",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Discover WP Engine installs and spin up local DDEV WordPress environments in parallel.",
+  "type": "module",
+  "bin": {
+    "wpe-wizard": "bin/wizard.js"
+  },
+  "scripts": {
+    "start": "node bin/wizard.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

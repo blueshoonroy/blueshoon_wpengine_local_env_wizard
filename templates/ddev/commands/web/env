@@ -1,0 +1,10 @@
+#!/bin/bash
+
+## Description: Filter the output of env on the web container to be used in host scripts
+## Usage: env
+## Example: eval "$(ddev env)"
+
+# set -x   # You can enable bash debugging output by uncommenting
+set -eu -o pipefail
+
+env | grep -E "DDEV_|WORDPRESS_|BLUESH_"

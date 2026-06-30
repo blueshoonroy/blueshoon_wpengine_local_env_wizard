@@ -1,0 +1,28 @@
+#!/bin/bash
+
+## Description: Symlink WP Engine SSH public key in web container and add to SSH agent
+## Usage: config-ssh
+## Example: "ddev config-ssh"
+
+pubkey_path=${WPENGINE_SSH_PUBLIC_KEY:-$HOME/.ssh/wpengine_ed25519.pub}
+
+if [[ ! -e $pubkey_path ]];
+then
+  echo "SSH public key not found: $pubkey_path"
+  echo "Option 1: Create this key. See https://wpengine.com/support/ssh-gateway/#Create_SSH_Key"
+  echo "Option 2: Symlink $pubkey_path to another public key"
+  echo "Option 3: Point to a public key by setting the WPENGINE_SSH_PUBLIC_KEY environment variable in .bashrc, .zshrc, etc."
+  exit 1
+fi
+
+pushd "$DDEV_APPROOT/.ddev/homeadditions/.ssh" >/dev/null || exit 1
+ln -sf "$pubkey_path" wpengine.pub
+
+known_hosts_path="$HOME/.ssh/known_hosts"
+
+if [[ ! -e known_hosts ]] && [[ -e $known_hosts_path ]];
+then
+  ln -s "$known_hosts_path" known_hosts
+fi
+
+ddev auth ssh -f "${pubkey_path%.pub*}" >/dev/null
