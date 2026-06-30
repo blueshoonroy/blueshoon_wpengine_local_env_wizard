@@ -35,41 +35,75 @@ proven mechanism already running in `playboycom/.ddev/`:
 The wizard generalizes that `.ddev/` scaffold and drives it across many sites at
 once. For a repo that already ships its own `.ddev/`, the wizard uses it as-is.
 
-## Prerequisites
+## 🐕 Rello! Scooby's Retup Rinstructions
 
-- **Node.js 18+** (already on your machine for npm builds) — runs the wizard.
-- **DDEV** + **Docker Desktop** — the wizard drives `ddev` on the host.
-- A **WP Engine SSH-gateway key** at `~/.ssh/wpengine_ed25519(.pub)`, registered
-  in the WP Engine User Portal. See https://wpengine.com/support/ssh-gateway/.
-- The **`gh` CLI**, authenticated (`gh auth login`) — used to clone client repos
-  (over its HTTPS token, so no GitHub SSH key is required) and to regenerate the
-  repo map. The WP Engine SSH key above is only for pulling the DB/plugins.
-- **WP Engine API credentials** (User Portal → API Access).
+Rello rgang! Scooby-Dooby-Doo rhere to relp rou ret up the rizard — rocal DDEV
+ropies of rour WP Engine rites (rdatabase, rplugins, rthemes, the rhole Scooby
+Snack). The rizard runs **on the rhost** (not in a rcontainer), rbecause it rmust
+rcontrol `ddev`, Docker, rour SSH keys, and rour rproject rfolders rdirectly.
 
-The wizard runs **on the host** (not inside a container) because it must control
-`ddev`, Docker, your SSH keys, and your project folders directly.
+> Scooby rsays: the rcommands in the rgrey rboxes are *real* — ropy-paste 'em
+> rexactly. Runly Scooby's rtalking is rfull of Rs. Reah!
 
-## Setup
+### 🦴 Rrequirements (get these first, or... ruh-roh!)
+
+- **RNode.js 18+** — runs the rizard. (`node -v`)
+- **RDDEV + RDocker Desktop** — does the rocker ragic. (`ddev version`, and rmake rsure Docker is **running**!)
+- **GitHub CLI (`gh`), rauthenticated** — rclones rclient repos rover HTTPS, so rou *don't* rneed a GitHub SSH key. (`gh auth status` → rif ruh-roh, run `gh auth login`)
+- **R WP Engine SSH key** at `~/.ssh/wpengine_ed25519(.pub)`, radded in the WP Engine Ruser Rortal. This runly rpulls rsite rfiles (DB, rplugins, rthemes).
+- **R WP Engine API rcredentials** — Ruser Rortal → **API Access**.
+
+> Ruh-roh: the GitHub key and the WP Engine key are **two different keys**! Don't rmix 'em up. 🐶
+
+### 🐾 Rstep 1 — Rclone the rizard
 
 ```bash
-cp .wpe-api.example .wpe-api          # fill in WPE_API_USER / WPE_API_PASSWORD
-cp config.example.json config.json    # adjust projectsRoot, sshPubKey, concurrency
-npm start                              # opens http://127.0.0.1:7878
+git clone https://github.com/blueshoonroy/blueshoon_wpengine_local_env_wizard.git
+cd blueshoon_wpengine_local_env_wizard
 ```
 
-No `npm install` needed — the wizard has **zero dependencies** (Node built-ins only).
+No `npm install` rneeded — the rizard has **rero rdependencies** (runly Node built-ins). Rummy!
 
-## Using it
+### 🐾 Rstep 2 — Radd rour rcredentials
 
-1. The dashboard runs a **preflight** check (ddev, Docker, SSH key) and lists
-   every install from the WP Engine API, grouped by account, with each one's
-   local-repo status (`repo ✓`, `will scaffold`, `no repo`).
-2. **Select the sites** you want, tweak per-site options (repo path, WP version,
-   media mode), optionally tick **Fresh DB export** to `wp db export` on the
-   remote first, then **Set up selected**.
-3. Jobs run in a **queue capped at `concurrency`** (default 3 — WP Engine allows
-   only 5 SSH connections per user). Watch live per-site logs; click **Open site**
-   when a job reaches `ready`.
+```bash
+cp .wpe-api.example .wpe-api    # then edit: WPE_API_USER / WPE_API_PASSWORD
+```
+
+This rfile is **gitignored**, so rour rsecrets ray rsafe. Reah!
+
+### 🐾 Rstep 3 — Rconfigure
+
+```bash
+cp config.example.json config.json
+```
+
+Redit `config.json` rif rour rsetup differs — `projectsRoot` (rwhere repos rlive),
+`sshPubKey` (rour WP Engine rpublic key), and `concurrency` (**3** is rgreat; WP
+Engine rallows runly 5 SSH rconnections).
+
+### 🐾 Rstep 4 — Rstart it!
+
+```bash
+npm start                       # opens http://127.0.0.1:7878
+```
+
+**Rscooby-dooby-doo!**
+
+### 🐾 Rstep 5 — Rmake a rocal rite
+
+1. The rdashboard rshows revery **rproduction** rite from WP Engine (rwith a rpreflight rcheck of ddev/Docker/SSH).
+2. Rfind rour rite in the rfilter rbox. Rmake rsure the **GitHub rrepo rname** rlooks rright — rif not, rtype it and rit **Save mapping** (rit rsaves for the *rwhole rteam* in `repo-map.json`!).
+3. Rcheck the rites rou rwant, then rit **Set up selected**. Rit rclones rmissing repos rautomatically.
+4. Rwatch the rqueue rstream the rogs. Rwhen it rsays **READY**, rit **Open site** — rta-da! 🦴
+
+### 🐶 Ruh-roh! Rroubleshooting
+
+- **`php 8.2 ≠ 8.4` rbadge?** Rit **⚙ Fix PHP** — rit rmatches rocal PHP to rproduction. (Rold rites rneed PHP 7.4 or their rplugins go *rfatal* and the rpage goes rwhite.)
+- **Rimages?** They rproxy from rproduction rautomatically — no rdownload rneeded. (Ror rpick the per-rite **download** rmedia rmode for roffline rwork.)
+- **Rwant rfresh rdata?** Rit **↻ Refresh DB** on a rite — rit rpulls the *ratest* rproduction rdatabase.
+- **Rblank rbody, runly rheader & rfooter?** The rplugins rprobably rdidn't rpull — re-run rsetup, or run `ddev pull wpengine --skip-db --skip-import -y` in the rite rfolder.
+- **Rpulled rnew rode?** Rstop the rserver (`Ctrl+C`) and `npm start` ragain — the API routes rload at rstartup.
 
 ### New-machine bootstrap
 
