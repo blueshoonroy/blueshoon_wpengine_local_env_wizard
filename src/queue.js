@@ -1,7 +1,7 @@
 // Concurrency-capped job manager + the per-site setup pipeline.
 import { EventEmitter } from 'node:events';
 import { resolvePath, upsertSite } from './store.js';
-import { hasScaffold, generate } from './scaffold.js';
+import { hasScaffold, generate, syncManaged } from './scaffold.js';
 import { detectRepo, defaultRepoPath, repoExists, cloneRepo } from './repos.js';
 import { lookup as lookupRepo } from './repomap.js';
 import { checkSsh, freshDbExport, ddevStart, ddevUrl, ddevRefreshDb, ddevSetPhp } from './ddev.js';
@@ -121,6 +121,25 @@ export class JobManager extends EventEmitter {
     this.emit('jobs');
   }
 
+  /**
+   * Re-sync wizard-managed .ddev files onto an existing scaffold so a project's
+   * deployed copies can't drift behind template fixes (e.g. a stale update-db).
+   * Best-effort: a sync failure is logged but never fails the job. No-op when the
+   * repo isn't a wizard scaffold, so foreign .ddev/ setups are left untouched.
+   */
+  healScaffold(job) {
+    if (!hasScaffold(job.repoPath)) return;
+    try {
+      const { fileCount, mediaMode } = syncManaged(job.repoPath);
+      this.appendLog(
+        job,
+        `Synced ${fileCount} wizard-managed .ddev files (commands, nginx, entrypoints, ${mediaMode} provider) to heal drift.`
+      );
+    } catch (e) {
+      this.appendLog(job, `WARN: could not re-sync .ddev templates: ${e?.message || e}`);
+    }
+  }
+
   fail(job, message) {
     job.status = 'failed';
     job.error = message;
@@ -149,6 +168,10 @@ export class JobManager extends EventEmitter {
       }
       const v = String(job.opts.phpVersion || '').trim();
       if (!/^\d+\.\d+$/.test(v)) return this.fail(job, `Invalid PHP version: "${v}".`);
+
+      // set-php restarts the project, re-running the hook chain — heal drift first.
+      this.setStep(job, 'sync-scaffold');
+      this.healScaffold(job);
 
       this.setStep(job, `set-php ${v}`);
       this.appendLog(job, `Setting DDEV PHP to ${v} and restarting…`);
@@ -184,6 +207,10 @@ export class JobManager extends EventEmitter {
         return this.fail(job, `Repo not set up locally at ${job.repoPath}. Set the site up before refreshing its DB.`);
       }
       this.appendLog(job, `Refreshing DB for ${job.repoPath} from the latest production dump…`);
+
+      // Heal any stale wizard files (notably update-db) before we run them.
+      this.setStep(job, 'sync-scaffold');
+      this.healScaffold(job);
 
       this.setStep(job, 'refresh-db');
       const r = await ddevRefreshDb(job.repoPath, onLine);
@@ -236,7 +263,8 @@ export class JobManager extends EventEmitter {
       // 2. Scaffold .ddev/ if the repo doesn't already ship one.
       this.setStep(job, 'scaffold');
       if (hasScaffold(job.repoPath)) {
-        this.appendLog(job, 'Existing .ddev/ scaffold detected — using it as-is.');
+        this.appendLog(job, 'Existing .ddev/ scaffold detected — re-syncing wizard-managed files.');
+        this.healScaffold(job);
       } else {
         const { fileCount } = generate(job.repoPath, {
           projectName: job.slug,
