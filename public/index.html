@@ -4,6 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>WPEngine Local Env Wizard</title>
+    <script>
+      // Apply saved/system theme before first paint to avoid a flash.
+      (function () {
+        var saved = localStorage.getItem('theme');
+        var theme = saved || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
@@ -16,6 +24,7 @@
         </div>
       </div>
       <div class="actions">
+        <button id="btn-theme" class="ghost" title="Toggle light / dark mode" aria-label="Toggle theme">🌙</button>
         <button id="btn-refresh" class="ghost">↻ Refresh installs</button>
         <button id="btn-setup-all" class="ghost">Set up all from profile</button>
       </div>

@@ -142,7 +142,6 @@ function renderRow(i) {
       <div class="install-main">
         <div class="install-title">
           <span class="name">${escapeHtml(i.name)}</span>
-          <span class="tag ${i.environment}">${escapeHtml(i.environment || '?')}</span>
           ${phpTag(i)}
           <span class="badge-slot">${repoBadge(i)}</span>
           ${i.repoExists ? '<button class="ghost small refresh-db" title="Re-pull and re-import the latest production database">↻ Refresh DB</button>' : ''}
@@ -371,7 +370,22 @@ function escapeHtml(s) {
 }
 function attr(s) { return escapeHtml(s).replace(/"/g, '&quot;'); }
 
+// ---------- Theme ----------
+function applyThemeIcon() {
+  // Inline <head> script already set data-theme before paint; just sync the icon.
+  const light = document.documentElement.getAttribute('data-theme') === 'light';
+  $('#btn-theme').textContent = light ? '☀️' : '🌙';
+}
+function toggleTheme() {
+  const next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+  applyThemeIcon();
+}
+
 // ---------- wire up ----------
+$('#btn-theme').addEventListener('click', toggleTheme);
+applyThemeIcon();
 $('#btn-refresh').addEventListener('click', () => loadInstalls(true));
 $('#btn-setup').addEventListener('click', setupSelected);
 $('#btn-setup-all').addEventListener('click', setupAllFromProfile);

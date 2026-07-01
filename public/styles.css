@@ -1,4 +1,5 @@
 :root {
+  /* Dark theme (default). JS sets data-theme explicitly on load. */
   --bg: #0f1220;
   --panel: #181c2f;
   --panel-2: #1f2440;
@@ -10,12 +11,33 @@
   --warn: #ffb454;
   --err: #ff6b6b;
   --ok: #3ddc97;
+  --row-hover: #232847;
+  --drawer-bg: #0b0e1a;
+  --log-text: #cfd6ff;
+  --on-accent: #0b0e1a;
+}
+:root[data-theme="light"] {
+  --bg: #f4f5fb;
+  --panel: #ffffff;
+  --panel-2: #f0f2fa;
+  --line: #d3d8ec;
+  --text: #1a1d2e;
+  --muted: #5a6187;
+  --accent: #4a6bff;
+  --accent-2: #12a06a;
+  --warn: #b26a00;
+  --err: #d63030;
+  --ok: #12a06a;
+  --row-hover: #e8ebf7;
+  --drawer-bg: #ffffff;
+  --log-text: #2a2f52;
+  --on-accent: #ffffff;
 }
 * { box-sizing: border-box; }
 html, body { height: 100%; }
 body {
   margin: 0;
-  font: 14px/1.5 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
   background: var(--bg);
   color: var(--text);
   /* App shell: full-height column, only the inner lists scroll. */
@@ -26,10 +48,10 @@ body {
 }
 /* Fixed-height chrome above the scrolling columns. */
 .topbar, .banner, #config-panel { flex: 0 0 auto; }
-h1 { font-size: 18px; margin: 0; }
-h2 { font-size: 15px; margin: 0; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+h1 { font-size: 21px; margin: 0; }
+h2 { font-size: 17px; margin: 0; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
 p { margin: 0; }
-.muted { color: var(--muted); font-size: 12px; }
+.muted { color: var(--muted); font-size: 14px; }
 .hidden { display: none !important; }
 
 .topbar {
@@ -38,8 +60,8 @@ p { margin: 0; }
   position: sticky; top: 0; z-index: 5;
 }
 .brand { display: flex; gap: 12px; align-items: center; }
-.logo { font-size: 26px; }
-.sub { color: var(--muted); font-size: 12px; }
+.logo { font-size: 30px; }
+.sub { color: var(--muted); font-size: 14px; }
 .actions { display: flex; gap: 8px; }
 
 button {
@@ -48,14 +70,14 @@ button {
 }
 button:hover { border-color: var(--accent); }
 button:disabled { opacity: .5; cursor: not-allowed; }
-button.primary { background: var(--accent); border-color: var(--accent); color: #0b0e1a; font-weight: 600; }
+button.primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); font-weight: 600; }
 button.ghost { background: transparent; }
-button.small { padding: 5px 10px; font-size: 12px; }
+button.small { padding: 5px 10px; font-size: 14px; }
 
 .card { margin: 14px 20px; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 12px 16px; }
 .card summary { cursor: pointer; font-weight: 600; }
 .config-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin: 14px 0; }
-.config-grid label { display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: var(--muted); }
+.config-grid label { display: flex; flex-direction: column; gap: 4px; font-size: 14px; color: var(--muted); }
 .config-grid input { padding: 7px 9px; }
 input, select {
   font: inherit; color: var(--text); background: var(--bg);
@@ -81,17 +103,17 @@ input:focus, select:focus { outline: none; border-color: var(--accent); }
 /* Scrolling lists: flex-grow to fill the column, a min-height floor, own scrollbar. */
 .installs { flex: 1 1 auto; min-height: 240px; overflow-y: auto; display: flex; flex-direction: column; gap: 16px; padding-right: 4px; }
 .acct-group { flex: 0 0 auto; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
-.acct-head { background: var(--panel); padding: 8px 12px; font-weight: 600; font-size: 13px; display: flex; justify-content: space-between; }
+.acct-head { background: var(--panel); padding: 8px 12px; font-weight: 600; font-size: 15px; display: flex; justify-content: space-between; }
 .install-row {
   flex: 0 0 auto;
   display: grid; grid-template-columns: 22px 1fr; gap: 10px; padding: 10px 12px;
   border-top: 1px solid var(--line); background: var(--panel-2);
 }
-.install-row:hover { background: #232847; }
+.install-row:hover { background: var(--row-hover); }
 .install-main { display: flex; flex-direction: column; gap: 6px; }
 .install-title { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .install-title .name { font-weight: 600; }
-.tag { font-size: 10.5px; padding: 1px 7px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+.tag { font-size: 12.5px; padding: 1px 7px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
 .tag.production { color: var(--warn); border-color: var(--warn); }
 .tag.staging { color: var(--accent); border-color: var(--accent); }
 .tag.development { color: var(--accent-2); border-color: var(--accent-2); }
@@ -101,17 +123,17 @@ input:focus, select:focus { outline: none; border-color: var(--accent); }
 .tag.tag-warn { color: var(--warn); border-color: var(--warn); }
 .tag.scaffold { color: var(--accent-2); border-color: var(--accent-2); }
 
-.repo-line { display: flex; align-items: center; gap: 6px; font-size: 12px; }
-.repo-line .o-repo-name { flex: 1 1 auto; max-width: 280px; padding: 4px 7px; font-size: 12px; }
+.repo-line { display: flex; align-items: center; gap: 6px; font-size: 14px; }
+.repo-line .o-repo-name { flex: 1 1 auto; max-width: 280px; padding: 4px 7px; font-size: 14px; }
 .repo-line .save-repo { white-space: nowrap; }
 .install-opts { display: none; grid-template-columns: 2fr 1fr 1fr; gap: 8px; }
 .install-row.selected .install-opts { display: grid; }
 .install-row.selected { outline: 1px solid var(--accent); }
-.install-opts label { font-size: 11px; color: var(--muted); display: flex; flex-direction: column; gap: 3px; }
-.domain { color: var(--muted); font-size: 12px; }
+.install-opts label { font-size: 13px; color: var(--muted); display: flex; flex-direction: column; gap: 3px; }
+.domain { color: var(--muted); font-size: 14px; }
 
 .setup-bar { flex: 0 0 auto; display: flex; justify-content: space-between; align-items: center; padding-top: 12px; margin-top: 10px; border-top: 1px solid var(--line); }
-.inline { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; }
+.inline { display: inline-flex; align-items: center; gap: 6px; font-size: 15px; }
 
 .queue { flex: 1 1 auto; min-height: 240px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; padding-right: 4px; }
 .job { flex: 0 0 auto; }
@@ -121,8 +143,8 @@ input:focus, select:focus { outline: none; border-color: var(--accent); }
 }
 .job-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
 .job .slug { font-weight: 600; }
-.job .step { font-size: 11px; color: var(--muted); }
-.status { font-size: 11px; padding: 2px 9px; border-radius: 999px; border: 1px solid var(--line); text-transform: uppercase; }
+.job .step { font-size: 13px; color: var(--muted); }
+.status { font-size: 13px; padding: 2px 9px; border-radius: 999px; border: 1px solid var(--line); text-transform: uppercase; }
 .status.queued { color: var(--muted); }
 .status.running { color: var(--accent); border-color: var(--accent); }
 .status.ready { color: var(--ok); border-color: var(--ok); }
@@ -133,11 +155,11 @@ input:focus, select:focus { outline: none; border-color: var(--accent); }
 
 .drawer {
   position: fixed; right: 0; bottom: 0; top: 0; width: min(720px, 92vw);
-  background: #0b0e1a; border-left: 1px solid var(--line); display: flex; flex-direction: column; z-index: 20;
+  background: var(--drawer-bg); border-left: 1px solid var(--line); display: flex; flex-direction: column; z-index: 20;
   box-shadow: -10px 0 40px rgba(0,0,0,.5);
 }
 .drawer-head { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border-bottom: 1px solid var(--line); }
-.log-body { flex: 1; margin: 0; padding: 14px 16px; overflow: auto; font: 12px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; white-space: pre-wrap; color: #cfd6ff; }
+.log-body { flex: 1; margin: 0; padding: 14px 16px; overflow: auto; font: 14px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; white-space: pre-wrap; color: var(--log-text); }
 .log-body .l-step { color: var(--accent-2); }
 .log-body .l-fail { color: var(--err); }
 .log-body .l-ready { color: var(--ok); }

@@ -33,5 +33,12 @@
     "repoGitUrl": "git@github.com:blueshoon/visionary-women.git",
     "wpVersion": "6.9.4",
     "mediaMode": "proxy"
+  },
+  {
+    "slug": "winoviaprod",
+    "remoteDomain": "www.winovia.com",
+    "repoGitUrl": "git@github.com:blueshoon/Winovia.git",
+    "wpVersion": "6.9.4",
+    "mediaMode": "proxy"
   }
 ]
